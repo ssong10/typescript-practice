@@ -1,35 +1,76 @@
 # TypeSript 
 
 * install
-전역으로 typescript 를 설치해줍니다
-```bash
-$ npm install -g typescript
+    전역으로 typescript 를 설치해줍니다
+    
+    ```bash
+    $ npm install -g typescript
+    ```
 ```
-
+    
 * 실행
-현재 directory에 있는 파일들을 tsconfig.json에 맞춰 컴파일 하게 됩니다.
-```bash
-  $ tsc
+    현재 directory에 있는 파일들을 tsconfig.json에 맞춰 컴파일 하게 됩니다.
+    
+    ```bash
+    $ tsc
 ```
-특정 파일만 컴파일 하고 싶다면 파일을 명시해줄 수 있습니다
-tsconfig.json 의 영향을 받지 않습니다.
-```bash
-  $ tsc test.ts
-```
-..
+    특정 파일만 컴파일 하고 싶다면 파일을 명시해줄 수 있습니다
+    tsconfig.json 의 영향을 받지 않습니다.
+    
+    ```bash
+    $ tsc test.ts
+    ```
+
+
+
 ## config 
+
 ```bash
 $ tsc --init
 ```
 명령어을 통해서 tsconfig.json 파일을 생성해주게 됩니다.
 해당 JSON 파일에서 `compilerOptions` 의 옵션들이 `ts -> js 을 컴파일을 하면서 어떤 옵션을 적용` 할지 설정값을 가지고 있게 됩니다.
+
 기본값들과 주석으로 설명이 되어있고 기본적인 명령을 알아보겠습니다
+
+
+
 ### compilerOptions
+
 * target
   - 컴파일된 코드가 어떤 환경에서 실행될 지 정의합니다.
-  ex ) es6 에서 사용되는 arrow function 이나 Destructuring 를 사용하고 있을때
-    - target : es5 -> 일반 function 이나 __spreadArray 와 같은 함수의 생성으로 변환이 됩니다.
+    ex ) es6 에서 사용되는 arrow function 이나 Destructuring 를 사용하고 있을때
+
     - target : es6 -> 기존의 코드 es6 스타일을 그대로 유지하게 됩니다. 
+
+    ```javascript
+    "use strict";
+    // target : "es6"
+    const copyArray = (arr) => {
+        return [...arr];
+    };
+    const copy = copyArray([1, 2, 3]);
+    ```
+
+     
+
+    - target : es5 -> 일반 function 이나 __spreadArray 와 같은 함수의 생성으로 변환이 됩니다.
+
+    ```javascript
+    "use strict";
+    var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+        for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+            to[j] = from[i];
+        return to;
+    };
+    // target : "es5"
+    var copyArray = function (arr) {
+        return __spreadArray([], arr);
+    };
+    ```
+
+    
+
   - 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', 'ES2021', or 'ESNEXT'.
 
 * module
@@ -47,13 +88,17 @@ $ tsc --init
   - 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'
 
 * strict
+  
   - 타입-체킹 옵션을 활성화 한다는 것을 의미합니다.
 * esModuleInterop
+  
   - commonjs 모듈 형태로 이루어진 파일을 es2015 모듈 형태로 불러올 수 있게 해줍니다.
 * outDir
   - 컴파일된 파일들을 저장할 경로를 지정해주게 됩니다.
   - 설정하지 않으면 기존 파일이 있는 위치에 저장됩니다.
-
+* declaration
+  - `*.d.ts` 을 생성하게 되고, 파일은 타입스크립트 코드의 타입 추론을 돕는 파일입니다. 
+  - 전역으로 타입들을 관리하거나 import 하여 type을 가져와서 사용할 수 있습니다.
 
 ### files / include / exclude
 어떤 파일에 ts compiler 를 적용을 할지 설정해주게 됩니다.
