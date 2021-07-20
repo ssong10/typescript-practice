@@ -1,0 +1,12 @@
+declare const numberType: number;
+declare const stringType: string;
+declare const booleanType: boolean;
+declare const undefinedType: undefined;
+declare const objectType: object;
+declare const nullType: null;
+declare const numberArray: number[];
+declare const alphabetArray: string[];
+declare const personArray: [string, number, boolean];
+declare let obj: any;
+declare const n: number;
+declare let myName: string;
