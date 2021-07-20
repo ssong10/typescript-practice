@@ -6,4 +6,3 @@ declare function printName(obj: {
     first: string;
     last?: string;
 }): void;
-declare const div: HTMLDivElement;

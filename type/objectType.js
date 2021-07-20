@@ -8,4 +8,3 @@ function printName(obj) {
 // Both OK
 printName({ first: "Bob" });
 printName({ first: "Alice", last: "Alisson" });
-var div = document.createElement('div');
