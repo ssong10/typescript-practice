@@ -21,8 +21,21 @@ obj.bar = 100;
 obj = "hello";
 const n: number = obj;
 
-
 // 4. no type annotation
 let myName = "Alice"
 // myName = 123
 // Type 'number' is not assignable to type 'string'.
+
+
+// 5. Literal Types 
+type Hello = 'hello'
+let hello:Hello = 'hello'
+// error
+// hello = 'hi'
+
+function printText(s: string, alignment: "left" | "right" | "center") {
+  // ...
+}
+printText("Hello, world", "left");
+// error 
+// printText("G'day, mate", "centre");

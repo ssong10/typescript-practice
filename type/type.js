@@ -20,5 +20,12 @@ obj = "hello";
 var n = obj;
 // 4. no type annotation
 var myName = "Alice";
-// myName = 123
-// Type 'number' is not assignable to type 'string'.
+var hello = 'hello';
+// error
+// hello = 'hi'
+function printText(s, alignment) {
+    // ...
+}
+printText("Hello, world", "left");
+// error 
+// printText("G'day, mate", "centre");

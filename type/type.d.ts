@@ -10,3 +10,6 @@ declare const personArray: [string, number, boolean];
 declare let obj: any;
 declare const n: number;
 declare let myName: string;
+declare type Hello = 'hello';
+declare let hello: Hello;
+declare function printText(s: string, alignment: "left" | "right" | "center"): void;
