@@ -4,7 +4,7 @@ TypeScript 를 활용하기 위해서 js 타입이 어떤식으로 이루어져 
 
 
 
-## Basic Type
+## 01. Basic Type
 
 기본적으로 핵심적인 type(`BasicPrimitive`) 으로는
   * string
@@ -29,13 +29,17 @@ boolean 은 true 와 false 에 해당하는 값이 들어갑니다.
 
 
 
-## Array
+## 02. Array
 
 기본적으로 하나의 형태(type) 을 가지고 있는 Array를 표현할 수 있습니다
   ```typescript
 const numberArray:number[] = [1,2,3]
 const alphabetArray:string[] = ['a','b','c']
   ```
+
+
+
+## 03. tuple
 
 또한 tuple 과 같은 형식으로 인덱스에 맞춰 불변 구조로 맞춰 사용할 수 있습니다
   ```typescript
@@ -45,7 +49,26 @@ const personArray:[string,number,boolean] = ['eric',28,true]
 
 
 
-## any
+## 04. enum
+
+순서와 값을 매칭되어있는 타입입니다.
+
+```typescript
+enum Color { Red,Green, Blue}
+let c : Color = Color.Green
+
+// All True
+// Color[0] === 'Red';
+// Color['Red'] === 0;
+// Color[1] === 'Green';
+// Color['Green'] === 1;
+// Color[2] === 'Blue';
+// Color['Blue'] === 2;
+
+```
+
+
+## 05.any
 
 * TypeScript 의 특별한 type 입니다.
 * TypeScript에게 특정 코드 라인에 Type checking을 요구하지 않고 싶을 때 사용하게 됩니다
@@ -63,7 +86,9 @@ const n: number = obj;
 
 
 
-### Literal Types
+### 06. Literal Types
+
+특정 문자열이나, 숫자 등을 넣을 수 있는 형태입니다.
 
 ```typescript
 type Hello = 'hello'
@@ -79,7 +104,8 @@ printText("Hello, world", "left");
 
 
 
-## Type 유추
+## 07. Type 유추
+
 위에서 사용한 것 처럼 변수에 대한 type 유형을 지정하는 주석을 설정할 수 있습니다.
 ```typescript
 let myName:string = "Alice"
@@ -96,7 +122,7 @@ myName = 123
 
 
 
-## Object Type
+## 08. Object Type
 
 * 위에서 선언했던 것과 같이 선언형으로 type을 정해줄 수 있습니다
   ```typescript
@@ -143,15 +169,15 @@ myName = 123
   - `|` 로 분기를 해서 type 을 적어주게 된다.
 
   ```typescript
-type ID = number | string;
+    type ID = number | string;
 
-function printID(id:ID){
-  console.log(`ID : ${id}`)
-}
+    function printID(id:ID){
+      console.log(`ID : ${id}`)
+    }
 
-// Both OK
-printID(1025)
-printID('LEE')
+    // Both OK
+    printID(1025)
+    printID('LEE')
   ```
 
 

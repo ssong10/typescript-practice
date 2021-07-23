@@ -7,6 +7,12 @@ declare const nullType: null;
 declare const numberArray: number[];
 declare const alphabetArray: string[];
 declare const personArray: [string, number, boolean];
+declare enum Color {
+    Red = 0,
+    Green = 1,
+    Blue = 2
+}
+declare let c: Color;
 declare let obj: any;
 declare const n: number;
 declare let myName: string;
